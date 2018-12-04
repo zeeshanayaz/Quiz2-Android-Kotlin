@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".fragments.SignUpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/signup"
+                style="@style/page_heading"/>
+            <EditText
+                android:id="@+id/fullName_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/full_name"
+                android:inputType="text"
+                style="@style/editTextBox"/>
+            <EditText
+                android:id="@+id/email_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                style="@style/editTextBox"/>
+            <EditText
+                android:id="@+id/password_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                style="@style/editTextBox"/>
+            <EditText
+                android:id="@+id/contactNo_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/contact_no"
+                android:inputType="phone"
+                style="@style/editTextBox"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/userImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_menu_camera"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_your_profile_image"
+                    style="@style/editTextBox"
+                    android:paddingTop="10dp"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Course"
+                    style="@style/editTextBox"/>
+                <Spinner
+                        android:id="@+id/course_spinner"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        style="@style/editTextBox"/>
+            </LinearLayout>
+
+            <Button
+                    android:id="@+id/signup_Btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup"
+                    android:background="@color/colorPrimaryLight"
+                    android:textColor="@color/colorPrimaryText"
+                    android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

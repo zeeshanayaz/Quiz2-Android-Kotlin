@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Quiz 2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="about">About</string>
+    <string name="kotlin_and_android">kotlin and android</string>
+    <string name="all_users">All Users</string>
+    <string name="about_app">About App</string>
+    <string name="about_app_content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+        Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+        leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+        like Aldus PageMaker including versions of Lorem Ipsum.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="contact_no">Contact No</string>
+    <string name="select_your_profile_image">Select your Profile Image</string>
+
+
+    <string-array name="course">
+        <item> </item>
+        <item>Android</item>
+        <item>Kotlin</item>
+        <item>IOs</item>
+        <item>React</item>
+    </string-array>
+
+</resources>
