@@ -60,8 +60,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/select_your_profile_image"
                     style="@style/editTextBox"
-                    android:paddingTop="10dp"
-                />
+                    android:paddingTop="10dp"/>
 
             </LinearLayout>
 

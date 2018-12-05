@@ -27,5 +27,9 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
+    <style name="user_List_Secondary_Text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
 
 </resources>

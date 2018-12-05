@@ -1,13 +1,18 @@
 package com.example.zeeshan.quiz2.fragments
 
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.zeeshan.quiz2.MainActivity
 import com.example.zeeshan.quiz2.R
+import com.example.zeeshan.quiz2.interfaces.FragmentSignupInteraction
+import com.example.zeeshan.quiz2.models.User
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 
@@ -24,6 +29,8 @@ class SignUpFragment : Fragment() {
 
     lateinit var courseSpinner : Spinner
     lateinit var signUpButton: Button
+
+    var sendDataInteraction : FragmentSignupInteraction? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +59,18 @@ class SignUpFragment : Fragment() {
                         if(!contactNo.text.isEmpty()){
                             if (contactNo.text.length == 11){
 
+                                var currUser = User("${fullName.text.toString()}", "${email.text.toString()}",
+                                    "${password.text.toString()}","${contactNo.text.toString()}" , "${courseSpinner.selectedItem.toString()}")
+//                                Toast.makeText(activity!!, currUser.toString(), Toast.LENGTH_SHORT).show()
+
+
+
+                                if(sendDataInteraction != null){
+                                    sendDataInteraction?.sendData(currUser)
+
+
+                                }
+
                             }
                             else contactNo.setError("Contact Number should be atleat 11 digits!")
 
@@ -71,5 +90,19 @@ class SignUpFragment : Fragment() {
         return view
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        try {
+            sendDataInteraction = context as FragmentSignupInteraction
+        }
+        catch (e: Exception){
+            Toast.makeText(activity!!, "Can not cast Interface", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        sendDataInteraction = null
+    }
 
 }

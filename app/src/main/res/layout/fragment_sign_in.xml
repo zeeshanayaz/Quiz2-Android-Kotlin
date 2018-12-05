@@ -18,18 +18,22 @@
                 style="@style/page_heading"/>
         <EditText
                 android:layout_width="match_parent"
+                android:id="@+id/email_address_textview"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
                 style="@style/editTextBox"
                 android:inputType="textEmailAddress"/>
+
         <EditText
+                android:id="@+id/password_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                style="@style/editTextBox"/>
-
+                style="@style/editTextBox"
+                android:drawableRight="@drawable/ic_action_eye"/>
         <Button
+            android:id="@+id/signin_Btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signin"

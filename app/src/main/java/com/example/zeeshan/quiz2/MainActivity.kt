@@ -1,5 +1,6 @@
 package com.example.zeeshan.quiz2
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,26 +8,54 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.zeeshan.quiz2.fragments.AboutFragment
-import com.example.zeeshan.quiz2.fragments.SignInFragment
-import com.example.zeeshan.quiz2.fragments.SignUpFragment
+import com.example.zeeshan.quiz2.fragments.*
+import com.example.zeeshan.quiz2.interfaces.FragmentSignupInteraction
+import com.example.zeeshan.quiz2.interfaces.FragmentUsersInteraction
+import com.example.zeeshan.quiz2.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.fragment_sign_up.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener , AboutFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener , AboutFragment.OnFragmentInteractionListener, FragmentSignupInteraction {
 
     lateinit var aboutFragment : AboutFragment
     lateinit var signinFragemnt : SignInFragment
     lateinit var signupFragment : SignUpFragment
+    lateinit var allUsersFragment: AllUserFragment
+
+    var recieveDataInteraction : FragmentUsersInteraction? = null
+
+
+    override fun sendData(user: User) {
+        Toast.makeText(this, "Current User:\n${user.toString()}", Toast.LENGTH_SHORT).show()
+
+        recieveDataInteraction?.recieveData(user)
+    }
+
+    public fun setRecieveInteraction(recieveInteraction: FragmentUsersInteraction){
+        this.recieveDataInteraction = recieveInteraction
+    }
+
+//    public fun showPopup(){
+//        val dialogBuilder = AlertDialog.Builder(this@MainActivity)
+//        val create: AlertDialog = dialogBuilder.create()
+//
+//        dialogBuilder.setCancelable(false)
+//
+//        dialogBuilder.setTitle("User Added!")
+//        dialogBuilder.setMessage("User Added Successfully.")
+//
+//        dialogBuilder.setPositiveButton("OK", object : DialogInterface.OnClickListener{
+//            override fun onClick(dialog: DialogInterface?, which: Int) {
+//
+//            }
+//        })
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +75,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         aboutFragment = AboutFragment()
         signinFragemnt = SignInFragment()
         signupFragment = SignUpFragment()
-
+        allUsersFragment = AllUserFragment()
         
     }
 
@@ -117,7 +146,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_users ->{
-
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container_main, allUsersFragment)
+                    .addToBackStack(allUsersFragment.toString())
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
             }
             R.id.nav_share -> {
                 val shareIntent: Intent = Intent().apply {
@@ -125,7 +159,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
                     type = "text/plain"
                 }
-                startActivity(Intent.createChooser(shareIntent, "XYZ"))
+                startActivity(Intent.createChooser(shareIntent, "Sending your app data to..."))
 //               var sharingIntent : Intent = Intent().apply {
 //                   action = Intent.ACTION_SEND
 //               }
