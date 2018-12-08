@@ -51,15 +51,24 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/userImage"
+                    android:id="@+id/userImageIcon_Id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_menu_camera"/>
+                <ImageView
+                    android:id="@+id/userImage_Id"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    android:src="@drawable/android_and_kotlin"/>
                 <TextView
+                    android:id="@+id/user_image_text_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/select_your_profile_image"
                     style="@style/editTextBox"
+
                     android:paddingTop="10dp"/>
 
             </LinearLayout>
