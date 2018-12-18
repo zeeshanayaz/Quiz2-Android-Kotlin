@@ -6,7 +6,9 @@
              tools:context=".fragments.SignUpFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -54,7 +56,10 @@
                     android:id="@+id/userImageIcon_Id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_menu_camera"/>
+                    android:src="@drawable/ic_menu_camera"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
+                />
                 <ImageView
                     android:id="@+id/userImage_Id"
                     android:layout_width="100dp"
@@ -94,9 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup"
-                    android:background="@color/colorPrimaryLight"
-                    android:textColor="@color/colorPrimaryText"
-                    android:layout_gravity="center"/>
+                    style="@style/button_form"/>
         </LinearLayout>
     </ScrollView>
 

@@ -33,7 +33,7 @@
 
 
     <string-array name="course">
-        <item></item>
+        <item>Null</item>
         <item>Android</item>
         <item>Kotlin</item>
         <item>IOs</item>

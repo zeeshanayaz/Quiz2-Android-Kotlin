@@ -35,6 +35,8 @@ class AllUserFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_all_user, container, false)
 
+
+        var listAdapter : ListAdapter? = null
         val recyclerView : RecyclerView = view.findViewById(R.id.all_User_recycler)
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
@@ -43,8 +45,20 @@ class AllUserFragment : Fragment() {
 //        myList.add(currUser)
 
 
-        val listAdapter = ListAdapter(activity!!, myList)
+        listAdapter = ListAdapter(activity!!, myList,
+            {
+                view, position ->
+                myList.removeAt(position)
+                listAdapter?.notifyDataSetChanged()
+            }
+//            ,{
+//                view, position ->
+//
+//            }
+        )
         recyclerView.adapter = listAdapter
+
+
 
         val mainActivity = activity as MainActivity
         mainActivity.setRecieveInteraction(object : FragmentUsersInteraction{
@@ -54,10 +68,9 @@ class AllUserFragment : Fragment() {
             }
         })
 
-
-
         return view
     }
+
 
 
 }

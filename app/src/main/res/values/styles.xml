@@ -31,5 +31,11 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
+    <style name="button_form">
+        <item name="android:background">@drawable/round_background_button</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 
 </resources>

@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.inputmethodservice.Keyboard
 import android.media.MediaScannerConnection
 import android.os.Build
 import android.os.Bundle
@@ -19,6 +20,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.example.zeeshan.quiz2.BuildConfig
 import com.example.zeeshan.quiz2.MainActivity
@@ -101,13 +103,19 @@ class SignUpFragment : Fragment() {
 
 
                                 if(sendDataInteraction != null){
+
+                                    fullName.text = ""
+                                    email.text = ""
+                                    password.text = ""
+                                    contactNo.text = ""
+                                    courseSpinner.setSelection(0)
+                                    bitMapImg = null
+
+                                    closeKeyboard()
+
                                     sendDataInteraction?.sendData(currUser)
 
-//                                    fullName.text = ""
-//                                    email.text = ""
-//                                    password.text = ""
-//                                    contactNo.text = ""
-//                                    courseSpinner.selectedItem
+
                                 }
 
                             }
@@ -131,6 +139,10 @@ class SignUpFragment : Fragment() {
             showPictureDialog()
         }
         return view
+    }
+
+    private fun closeKeyboard() {
+
     }
 
     private fun showPictureDialog() {

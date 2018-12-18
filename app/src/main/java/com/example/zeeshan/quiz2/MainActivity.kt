@@ -21,7 +21,7 @@ import com.example.zeeshan.quiz2.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener , AboutFragment.OnFragmentInteractionListener, FragmentSignupInteraction {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener , AboutFragment.OnFragmentInteractionListener, FragmentSignupInteraction {
 
     lateinit var aboutFragment : AboutFragment
     lateinit var signinFragemnt : SignInFragment
@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
                     type = "text/plain"
                 }
-                startActivity(Intent.createChooser(shareIntent, "Sending your app data to..."))
+                startActivity(Intent.createChooser(shareIntent, "Feel free to share this app with your friends."))
 //               var sharingIntent : Intent = Intent().apply {
 //                   action = Intent.ACTION_SEND
 //               }
