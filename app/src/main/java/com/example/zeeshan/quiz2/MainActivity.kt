@@ -27,6 +27,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     lateinit var signinFragemnt : SignInFragment
     lateinit var signupFragment : SignUpFragment
     lateinit var allUsersFragment: AllUserFragment
+    lateinit var profileFragment: ProfileFragment
 
     var recieveDataInteraction : FragmentUsersInteraction? = null
 
@@ -143,7 +144,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     .commit()
             }
             R.id.nav_profile -> {
-
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container_main, profileFragment)
+                    .addToBackStack(profileFragment.toString())
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
             }
             R.id.nav_users ->{
                 supportFragmentManager
