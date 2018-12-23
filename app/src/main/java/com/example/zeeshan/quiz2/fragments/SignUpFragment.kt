@@ -109,9 +109,8 @@ class SignUpFragment : Fragment() {
                                     password.text = ""
                                     contactNo.text = ""
                                     courseSpinner.setSelection(0)
-                                    bitMapImg = null
-
-                                    closeKeyboard()
+//                                    bitMapImg.recycle()
+//                                    closeKeyboard()
 
                                     sendDataInteraction?.sendData(currUser)
 

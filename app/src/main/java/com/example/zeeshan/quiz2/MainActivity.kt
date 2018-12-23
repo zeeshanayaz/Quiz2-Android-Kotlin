@@ -33,7 +33,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 
     override fun sendData(user: User) {
-        Toast.makeText(this, "Current User:\n${user.toString()}", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "Current User:\n${user.toString()}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Successfully Added a User", Toast.LENGTH_SHORT).show()
 
         recieveDataInteraction?.recieveData(user)
     }
@@ -77,6 +78,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         signinFragemnt = SignInFragment()
         signupFragment = SignUpFragment()
         allUsersFragment = AllUserFragment()
+        profileFragment = ProfileFragment()
         
     }
 
