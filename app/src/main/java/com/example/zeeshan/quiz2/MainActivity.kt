@@ -21,7 +21,7 @@ import com.example.zeeshan.quiz2.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener , AboutFragment.OnFragmentInteractionListener, FragmentSignupInteraction {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener , AboutFragment.OnFragmentInteractionListener, FragmentSignupInteraction, ProfileFragment.OnFragmentInteractionListener {
 
     lateinit var aboutFragment : AboutFragment
     lateinit var signinFragemnt : SignInFragment
